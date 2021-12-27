@@ -21,3 +21,10 @@ To generate gallery run `gallery-build` command by specifying input folder and o
 - `-o` is the path where `gallery-build` will store generated gallery files (.html file, thumbs, web resized media)
 
 **That's it** Now go to the output path and open `index.html` to view your gallery.
+
+## Requirements
+
+`gallery-build` requires the following dependencies:
+- [Node.js](http://nodejs.org/): `brew install node`
+- [ImageMagick](https://imagemagick.org/) to process photos: `brew install imagemagick`)
+- [FFmpeg](http://www.ffmpeg.org/) to process videos: `brew install ffmpeg`
