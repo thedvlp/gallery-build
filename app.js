@@ -137,7 +137,6 @@ function getExistingData(outputPath){
     const data = fs.readFileSync(path.join(outputPath, 'data.js'), 'utf8');
     return JSON.parse(data.replace("const photos=",""));
   } catch(err) {
-    console.log(err);
     return [];
   }
 }
