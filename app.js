@@ -36,6 +36,7 @@ function main(inputPath, outputPath) {
       generateJson(filesToAdd, existingData, outputPath).then(() => {
         console.log('Finished.');
         console.timeEnd('Time');
+        console.log('You can view the gallery throw: '+path.join(outputPath, 'index.html'));
       });
       
     });
@@ -115,7 +116,8 @@ function generateJson(filesToAdd, existingData, outputPath){
       const data = filesToAdd.map(file => FileRes.fromFile(file))
                              .concat(existingData)
                              .sort(sortCompare);
-      fs.writeFile(path.join(outputPath, 'data.json'), JSON.stringify(data), (err) => {
+      const jsString = "const photos=" + JSON.stringify(data);                       
+      fs.writeFile(path.join(outputPath, 'data.js'), jsString, (err) => {
         if (err) reject(err);
         resolve();
       });
@@ -132,8 +134,10 @@ function sortCompare(fileRes1, fileRes2){
 
 function getExistingData(outputPath){
   try {
-    return JSON.parse(fs.readFileSync(path.join(outputPath, 'data.json')));
+    const data = fs.readFileSync(path.join(outputPath, 'data.js'), 'utf8');
+    return JSON.parse(data.replace("const photos=",""));
   } catch(err) {
+    console.log(err);
     return [];
   }
 }

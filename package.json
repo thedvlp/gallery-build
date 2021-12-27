@@ -1,22 +1,27 @@
 {
-  "name": "gallery",
+  "name": "gallery-build",
   "version": "1.0.0",
-  "description": "Photo Video Gallery",
+  "description": "Converts your folder with photos and videos to html gallery",
   "main": "bin/index.js",
   "bin": {
-    "glry": "./bin/index.js"
+    "gallery-build": "./bin/index.js"
   },
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/thedvlp/gallery-build.git"
   },
   "keywords": [
     "photo",
     "video",
     "gallery"
   ],
-  "author": "Teymur Hajizada",
+  "author": "thedvlp",
   "license": "ISC",
   "dependencies": {
     "minimist": "^1.2.5"
-  }
+  },
+  "homepage": "https://github.com/thedvlp/gallery-build"
 }
